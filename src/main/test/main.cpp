@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 #include <stack>
+#include <boost/version.hpp>
 
 
 
@@ -14,6 +15,16 @@ using namespace std;
 
 
 int main(){
+    cout << "Hello, World!" << endl;
+    cout << "Boost版本：" << BOOST_VERSION << endl;
+    string sss = string("3333");
+    string sss2 = string("sr2sr2sr2");
+    string& sr = sss;
+    sr = "《《《dddd》》》";
+    sr = sss2;
+    cout<< sr << endl;
+
+
 
     list<string> slist(100);
     vector<int> ivect(212213);
@@ -43,6 +54,8 @@ int main(){
     for (; iterator1!=svec3.end(); ++iterator1) {
         cout<< *iterator1 << endl;
     }
+
+
 
     return 0;
 }
