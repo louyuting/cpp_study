@@ -87,11 +87,14 @@ int main(){
         vector1.push_back(std::move(bak));
     }
     // vector里面保存的是unique_ptr指针，当我们通过move移动指令取出来之后，
-    // vector里面响应指针会被回收吗？下面的case有疑惑...
+    // 那么vector里面对应的数据就已经为null了.
     unique_ptr<TT> first   = std::move(vector1[99]);
     cout<< first->_num <<endl;
     first->_num = 9999;
+    //vector1[99] = std::move(first);
     unique_ptr<TT> first_2 = std::move(vector1[99]);
-    cout<< first->_num <<endl;
-    cout<< "" <<endl;
+    if (!first_2){
+        cout<< "pointer has been used!"<<endl;
+    }
+    cout<< "ending" <<endl;
 }
