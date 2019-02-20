@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 project(cpp_study)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 # boost
 set(BOOST_ROOT "/usr/local/include/boost")
@@ -23,9 +23,14 @@ add_executable(study_list src/main/study/containers/list/test.cpp)
 add_executable(study_vector src/main/study/containers/vector/test.cpp)
 add_executable(study_string src/main/study/string/string_test.cpp)
 add_executable(study_stringstream src/main/study/string/stringstream_test.cpp)
+
+
 add_executable(study_ptr_auto src/main/study/ptr/auto_ptr_test.cpp)
 add_executable(study_ptr_shared1 src/main/study/ptr/shared_ptr1.cpp)
 add_executable(study_ptr_shared2 src/main/study/ptr/shared_ptr2.cpp)
+add_executable(study_ptr_unique_ptr_test1 src/main/study/ptr/unique_ptr_test.cpp)
+
+
 add_executable(study_multi_thread_test1_1 src/main/study/multi_thread/test1_1.cpp)
 add_executable(study_multi_thread_test1_2 src/main/study/multi_thread/test1_2.cpp)
 add_executable(study_multi_thread_test1_3 src/main/study/multi_thread/test1_3.cpp)
