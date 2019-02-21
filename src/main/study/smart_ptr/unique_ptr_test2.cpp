@@ -26,7 +26,6 @@ std::unique_ptr<D> print(std::unique_ptr<D> p){
 }
 
 
-
 int main(int argc, char* argv[]) {
     std::cout << "unique ownership semantics demo" << endl;
     {

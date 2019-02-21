@@ -70,7 +70,7 @@ int main(int argc, char* argv[]){
     cout << "custom deleter demo" << endl;
 
     {
-        FILE* fpz = std::fopen("/Users/ytlou/Desktop/fw_dev32/demo/cpp/cpp_study/src/main/study/ptr/demo.txt", "r"); // 准备要读的文件
+        FILE* fpz = std::fopen("/Users/ytlou/Desktop/fw_dev32/demo/cpp/cpp_study/src/main/study/smart_ptr/demo.txt", "r"); // 准备要读的文件
         std::unique_ptr<std::FILE, void (*)(std::FILE*)> fp(fpz, close_file);
         if(fp) // fopen 可以打开失败；该情况下 fp 保有空指针
             std::cout << (char)std::fgetc(fp.get()) << '\n';

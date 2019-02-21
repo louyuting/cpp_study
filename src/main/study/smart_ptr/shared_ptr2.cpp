@@ -2,10 +2,8 @@
 // Created by 娄宇庭 on 2018/12/15.
 //
 
-#ifndef DEMO_AUTO_PTR_TEST_H
-#define DEMO_AUTO_PTR_TEST_H
-
 #include <iostream>
+#include <memory>
 
 using namespace std;
 
@@ -19,5 +17,12 @@ public:
     }
 };
 
+int main(){
+    //shared_ptr<Test> sptr1(new Test[5]);
+    // 自定义析构时候的删除器
+    shared_ptr<Test> sptr2(new Test[5],
+            [](Test* p) {delete[]p;});
 
-#endif //DEMO_AUTO_PTR_TEST_H
+}
+
+

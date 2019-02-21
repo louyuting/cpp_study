@@ -25,10 +25,17 @@ add_executable(study_string src/main/study/string/stringstream_test.cpp)
 add_executable(study_stringstream src/main/study/string/stringstream_test.cpp)
 
 
-add_executable(study_ptr_auto src/main/study/ptr/auto_ptr_test.cpp)
-add_executable(study_ptr_shared1 src/main/study/ptr/shared_ptr1.cpp)
-add_executable(study_ptr_shared2 src/main/study/ptr/shared_ptr2.cpp)
-add_executable(study_ptr_unique_ptr_test src/main/study/ptr/unique_ptr_test.cpp)
+
+
+add_executable(study_rvalue_ref_move_forward_test1 src/main/study/rvalue_reference_move_forward/rvalue_reference_move_semantic_test.cpp)
+
+
+
+
+add_executable(study_ptr_auto src/main/study/smart_ptr/auto_ptr_test.cpp)
+add_executable(study_ptr_shared1 src/main/study/smart_ptr/shared_ptr1.cpp)
+add_executable(study_ptr_shared2 src/main/study/smart_ptr/shared_ptr2.cpp)
+add_executable(study_ptr_unique_ptr_test src/main/study/smart_ptr/unique_ptr_test.cpp)
 
 
 add_executable(study_multi_thread_test1_1 src/main/study/multi_thread/test1_1.cpp)
