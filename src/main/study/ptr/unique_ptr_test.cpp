@@ -1,100 +1,94 @@
 //
-// Created by 娄宇庭 on 2019/2/20.
+// Created by Yuting Lou on 2019-01-18.
 //
-
 #include <iostream>
+#include <ostream>
 #include <memory>
 #include <vector>
 
 using namespace std;
 
-/**
- * unique_ptr:
- * 1. 独占语义
- * 2. 不存在复制语义，拷贝赋值和拷贝构造都不可以， 只存在移动语义。
- * 3. 主要作为auto_ptr替代品
- * @return
- */
-
-unique_ptr<int> get_unique_ptr(){
-    unique_ptr<int> tmp = make_unique<int>(1);
-    return tmp;
-}
-
-void handler_unique_ptr(unique_ptr<int> ptr){
-    *ptr = 20;
-}
-
-class TT{
-public:
-    TT(int num):_num(num){
-        cout << "constructor TT" << endl;
+struct B {
+    virtual void bar() {
+        std::cout << "B::bar\n";
     }
-    ~TT(){
-        cout << "destructor TT" << endl;
-    }
-
-public:
-    int _num;
+    virtual ~B() = default;
 };
 
-int main(){
-    unique_ptr<int> p_int_1(new int(32));
-    unique_ptr<int> p_int_2 = std::make_unique<int>(64);
-    cout << *p_int_1<<endl;
-    cout << *p_int_2<<endl;
-
-//    拷贝构造被deleted
-//    unique_ptr<int> p_int3(p_int_2);
-//    unique_ptr<int> p_int4 = p_int_2;
-//    拷贝赋值也是被deleted
-//    unique_ptr<int> p_int_5;
-//    p_int_5 = p_int_2;
-
-    // 移动构造是存在的
-    unique_ptr<int> p_int6(std::move(p_int_1));
-    unique_ptr<int> p_int7;
-    p_int7 = std::move(p_int_2);
-    if (!p_int_1){
-        cout << "p_int_1 is null:" << endl;
-    }
-    if (p_int_2 == nullptr) {
-        cout << "p_int_2 is null:" << endl;
+struct D : B {
+    D() {
+        std::cout << "D::D" << endl;
     }
 
-    // 可以从函数返回然后获取unique_ptr
-    unique_ptr<int> p_int8 = get_unique_ptr();
-    if (!p_int8) {
-        cout << "p_int_8 is null:" << endl;
-    } else {
-        cout << "p_int_8 is:"<< *p_int8 << endl;
+    ~D() {
+        std::cout << "D::~D"<< endl;
     }
 
-    //传递参数，移动构造函数，在函数里面处理完毕之后就会被释放
-    //所以在调用handler_unique_ptr函数移动走p_int9之后，p_int9会变成null
-    unique_ptr<int> p_int9 = make_unique<int>(8);
-    handler_unique_ptr(std::move(p_int9));
-    if (!p_int9) {
-        cout << "p_int9 is null:" << (!p_int9) << endl;
-    } else {
-        cout << "p_int9 is not null:"<< (!p_int9) << endl;
+    void bar() override {
+        std::cout << "D::bar"<< endl;
     }
+};
 
-    // 容器里面保存指针, 可以取出
-    vector<unique_ptr<TT>> vector1;
-    for (int i = 0; i < 100; ++i) {
-        unique_ptr<TT> bak = std::make_unique<TT>(i);
-        vector1.push_back(std::move(bak));
-    }
-    // vector里面保存的是unique_ptr指针，当我们通过move移动指令取出来之后，
-    // 那么vector里面对应的数据就已经为null了.
-    unique_ptr<TT> first   = std::move(vector1[99]);
-    cout<< first->_num <<endl;
-    first->_num = 9999;
-    //vector1[99] = std::move(first);
-    unique_ptr<TT> first_2 = std::move(vector1[99]);
-    if (!first_2){
-        cout<< "pointer has been used!"<<endl;
-    }
-    cout<< "ending" <<endl;
+
+
+std::unique_ptr<D> pass_through(std::unique_ptr<D> p){
+    p->bar();
+    return p;
+}
+
+
+void close_file(std::FILE* fp){
+    std::fclose(fp);
+}
+
+
+
+int main(int argc, char* argv[]){
+    std::cout << "unique ownership semantics demo" << endl;
+    {
+        auto p = std::make_unique<D>();
+        // 移动构造函数，p会被析构，也就是p编程nullptr
+        auto q = pass_through(std::move(p));
+        assert(!p); // 现在 p 不占有任何内容并保有空指针
+        q->bar();   // 而 q 占有 D 对象
+    }// ~D 调用于此
+
+    std::cout << "Runtime polymorphism demo" << endl;
+    {
+        std::unique_ptr<B> p = std::make_unique<D>();
+        p->bar();
+
+        std::vector<std::unique_ptr<B>> v;  // unique_ptr 能存储于容器
+        v.push_back(std::make_unique<D>());
+        v.push_back(std::move(p));
+        v.emplace_back(new D);
+        for(auto& p: v){
+            p->bar(); // 虚派发
+        }
+    }//// ~D called 3 times
+
+    cout << "custom deleter demo" << endl;
+
+    {
+        FILE* fpz = std::fopen("/Users/ytlou/Desktop/fw_dev32/demo/cpp/cpp_study/src/main/study/ptr/demo.txt", "r"); // 准备要读的文件
+        std::unique_ptr<std::FILE, void (*)(std::FILE*)> fp(fpz, close_file);
+        if(fp) // fopen 可以打开失败；该情况下 fp 保有空指针
+            std::cout << (char)std::fgetc(fp.get()) << '\n';
+    } // fclose() 调用于此，但仅若 FILE* 不是空指针
+    // （即 fopen 成功）
+
+    std::cout << "Custom lambda-expression deleter demo\n";
+    {
+        std::unique_ptr<D, std::function<void(D*)>> p(new D, [](D* ptr)
+        {
+            std::cout << "destroying from a custom deleter...\n";
+            delete ptr;
+        });  // p 占有 D
+        p->bar();
+    } // 调用上述 lambda 并销毁 D
+
+    std::cout << "Array form of unique_ptr demo\n";
+    {
+        std::unique_ptr<D[]> p{new D[3]};
+    } // 调用
 }
