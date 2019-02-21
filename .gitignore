@@ -1,2 +1,3 @@
 .idea
 cmake-build-debug-gcc7
+cmake-build-debug
