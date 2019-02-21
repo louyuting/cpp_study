@@ -21,14 +21,14 @@ add_executable(study_array src/main/study/containers/array/test.cpp)
 add_executable(study_forward_list src/main/study/containers/forward_list/test.cpp)
 add_executable(study_list src/main/study/containers/list/test.cpp)
 add_executable(study_vector src/main/study/containers/vector/test.cpp)
-add_executable(study_string src/main/study/string/string_test.cpp)
+add_executable(study_string src/main/study/string/stringstream_test.cpp)
 add_executable(study_stringstream src/main/study/string/stringstream_test.cpp)
 
 
 add_executable(study_ptr_auto src/main/study/ptr/auto_ptr_test.cpp)
 add_executable(study_ptr_shared1 src/main/study/ptr/shared_ptr1.cpp)
 add_executable(study_ptr_shared2 src/main/study/ptr/shared_ptr2.cpp)
-add_executable(study_ptr_unique_ptr_test1 src/main/study/ptr/unique_ptr_test.cpp)
+add_executable(study_ptr_unique_ptr_test src/main/study/ptr/unique_ptr_test.cpp)
 
 
 add_executable(study_multi_thread_test1_1 src/main/study/multi_thread/test1_1.cpp)
