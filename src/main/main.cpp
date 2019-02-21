@@ -55,8 +55,6 @@ int main(){
         cout<< *iterator1 << endl;
     }
 
-
-
     return 0;
 }
 

@@ -10,8 +10,13 @@ int main() {
     cout << "====================start====================" << endl;
 
     stringstream ss("hahahahahaha");
+    ss << "hello world1;";
     cout << ss.str() << endl;
+    ss << "hello world2;";
     cout << ss.str() << endl;
+    string co;
+    ss >> co;
+    cout << "co:"<< co << endl;
     cout << "====================end====================" << endl;
     ss.str("123456");
     cout << ss.str() << endl;

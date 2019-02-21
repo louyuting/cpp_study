@@ -11,7 +11,7 @@ include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
 
-add_executable(demo src/main/test/main.cpp)
+add_executable(demo src/main/main.cpp)
 
 add_executable(effective_07 src/main/effective/num07/test.cpp)
 add_executable(effective_08 src/main/effective/num08/test.cpp)
@@ -35,7 +35,8 @@ add_executable(study_rvalue_ref_move_forward_test1 src/main/study/rvalue_referen
 add_executable(study_ptr_auto src/main/study/smart_ptr/auto_ptr_test.cpp)
 add_executable(study_ptr_shared1 src/main/study/smart_ptr/shared_ptr1.cpp)
 add_executable(study_ptr_shared2 src/main/study/smart_ptr/shared_ptr2.cpp)
-add_executable(study_ptr_unique_ptr_test src/main/study/smart_ptr/unique_ptr_test.cpp)
+add_executable(study_ptr_unique_ptr_test  src/main/study/smart_ptr/unique_ptr_test.cpp)
+add_executable(study_ptr_unique_ptr_test2 src/main/study/smart_ptr/unique_ptr_test2.cpp)
 
 
 add_executable(study_multi_thread_test1_1 src/main/study/multi_thread/test1_1.cpp)
