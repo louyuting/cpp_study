@@ -21,8 +21,12 @@ add_executable(study_array src/main/study/containers/array/test.cpp)
 add_executable(study_forward_list src/main/study/containers/forward_list/test.cpp)
 add_executable(study_list src/main/study/containers/list/test.cpp)
 add_executable(study_vector src/main/study/containers/vector/test.cpp)
-add_executable(study_string src/main/study/string/stringstream_test.cpp)
-add_executable(study_stringstream src/main/study/string/stringstream_test.cpp)
+
+
+
+# src/main/study/string
+add_executable(study_string_test1 src/main/study/string/string_test.cpp)
+add_executable(study_stringstream_test1 src/main/study/string/stringstream_test.cpp)
 
 
 
