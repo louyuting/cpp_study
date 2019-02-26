@@ -26,15 +26,19 @@ add_executable(constructor_copy_test1 src/main/study/constructor/copy_constructo
 
 
 
-add_executable(effective_07 src/main/effective/num07/test.cpp)
-add_executable(effective_08 src/main/effective/num08/test.cpp)
-add_executable(effective_test src/main/effective/numtest/test.cpp)
+add_executable(effective_07 src/main/study/object_oriented/inheritance_test1.cpp)
+
+
+
 
 add_executable(study_array src/main/study/containers/array/test.cpp)
 add_executable(study_forward_list src/main/study/containers/forward_list/test.cpp)
-add_executable(study_list src/main/study/containers/list/test.cpp)
+add_executable(study_list src/main/study/containers/list/inheritance_test1.cpp)
 add_executable(study_vector src/main/study/containers/vector/test.cpp)
 
+
+# pass_paramter
+add_executable(pass_paramter_test1 src/main/study/pass_paramter/pass_paramter_test1.cpp)
 
 
 # src/main/study/string
@@ -75,7 +79,7 @@ add_executable(essential_chap6_01 src/main/essential/chap6/template_test.cpp)
 add_executable(cpp_primer_chap7_test1 src/main/cpp_primer/chap7/test1.cpp)
 add_executable(cpp_primer_chap12_test1 src/main/cpp_primer/chap12/test12_1.cpp)
 add_executable(cpp_primer_chap12_test3 src/main/cpp_primer/chap12/test12_3.cpp)
-add_executable(cpp_primer_chap13_test1 src/main/cpp_primer/chap13/test1.cpp)
+add_executable(cpp_primer_chap13_test1 src/main/study/constructor/copy_constructor_assignment_test1.cpp)
 add_executable(cpp_primer_chap15_test1 src/main/cpp_primer/chap15/test1.cpp)
 
 

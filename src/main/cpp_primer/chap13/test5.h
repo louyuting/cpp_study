@@ -5,7 +5,6 @@
 #ifndef DEMO_TEST5_H
 #define DEMO_TEST5_H
 
-
 #include <iostream>
 #include <string>
 
@@ -15,12 +14,19 @@ class StrVec{
 public:
     // 指针元素默认初始化
     StrVec():elements(nullptr), first_free(nullptr),cap(nullptr){}
+    // copy constructor
     StrVec(const StrVec& rhs);
-    // 移动构造函数, 不应该抛出任何异常
+
+    // move constructor
     StrVec(const StrVec&& rhs) noexcept;
+
+    // copy assignment
     StrVec&operator=(const StrVec& rhs);
-    // 移动赋值运算符
+
+    // move assignment
     StrVec&operator=(const StrVec&& rhs)noexcept;
+
+    // destroy
     ~StrVec();
 
     void push_back(const string&);
@@ -30,8 +36,6 @@ public:
     string* end() const { return first_free;}
 
 private:
-    //分配元素
-    static allocator<string> alloc;
     void chk_n_alloc(){
         if (size() == capacity()){
             reallocate();
@@ -43,6 +47,10 @@ private:
     void free();
     //获得更多内存并拷贝元素
     void reallocate();
+
+//member
+    //分配元素
+    static allocator<string> alloc;
     //指向数组首元素的指针
     string* elements;
     //指向数组第一个空闲元素的指针

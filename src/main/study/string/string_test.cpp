@@ -11,8 +11,6 @@ using namespace std;
 int main(int argc, char* args[]){
     string str1;
     string str2("str2");
-
-
 }
 
 

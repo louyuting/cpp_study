@@ -59,14 +59,4 @@ double print_total(ostream& os, const Quote& item, size_t n){
 
 
 
-
-
-
-
-
-
-
-
-
-
 #endif //DEMO_TEST1_H

@@ -7,7 +7,7 @@
 
 
 /**
- * 验证初始化的书序
+ * 验证初始化的顺序
  */
 using namespace std;
 
