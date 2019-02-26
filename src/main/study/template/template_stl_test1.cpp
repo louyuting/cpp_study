@@ -1,7 +1,6 @@
 //
 // Created by 娄宇庭 on 2018/12/10.
 //
-#include "chap3.h"
 #include <iostream>
 #include <vector>
 

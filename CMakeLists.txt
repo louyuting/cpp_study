@@ -61,17 +61,15 @@ add_executable(study_multi_thread_test3_2 src/main/study/multi_thread/test3_2.cp
 add_executable(study_multi_thread_test4_1 src/main/study/multi_thread/test4_1.cpp)
 
 
-add_executable(essential_chap3 src/main/essential/chap3/chap3.cpp)
-add_executable(essential_chap4_test1 src/main/essential/chap4/test1.cpp)
-add_executable(essential_chap4_member_initiallization_list_test src/main/essential/chap4/member_initiallization_list_test.cpp)
-add_executable(essential_chap5_libmat src/main/essential/chap5/LibMat.cpp)
-add_executable(essential_chap6_01 src/main/essential/chap6/template_test.cpp)
+add_executable(essential_chap3 src/main/study/template/template_stl_test1.cpp)
+add_executable(essential_chap4_member_initiallization_list_test src/main/study/constructor/member_initiallization_list_test.cpp)
+add_executable(essential_chap5_libmat src/main/study/object_oriented/oo_virtual_LibMat.cpp)
+add_executable(essential_chap6_01 src/main/study/template/template_test2.cpp)
 
 
-add_executable(cpp_primer_chap7_test1 src/main/cpp_primer/chap7/test1.cpp)
-add_executable(cpp_primer_chap12_test1 src/main/cpp_primer/chap12/test12_1.cpp)
-add_executable(cpp_primer_chap12_test3 src/main/cpp_primer/chap12/test12_3.cpp)
+add_executable(cpp_primer_chap12_test1 src/main/study/smart_ptr/shared_ptr_test3.cpp)
+add_executable(cpp_primer_chap12_test3 src/main/study/smart_ptr/shared_ptr_test4.cpp)
 add_executable(cpp_primer_chap13_test1 src/main/study/constructor/copy_constructor_assignment_test1.cpp)
-add_executable(cpp_primer_chap15_test1 src/main/cpp_primer/chap15/test1.cpp)
+add_executable(cpp_primer_chap15_test1 src/main/study/object_oriented/inheritance_test2.cpp)
 
 

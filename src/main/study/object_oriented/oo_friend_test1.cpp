@@ -2,8 +2,6 @@
 // Created by 娄宇庭 on 2018/12/17.
 //
 
-#ifndef DEMO_TEST1_H
-#define DEMO_TEST1_H
 
 #include <iostream>
 #include <string>
@@ -34,4 +32,3 @@ Sales_data add(const Sales_data& s1, const Sales_data& s2);
 istream& read(istream& is, Sales_data& s1);
 ostream& print(ostream& os, const Sales_data& s1);
 
-#endif //DEMO_TEST1_H

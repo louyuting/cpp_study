@@ -2,9 +2,6 @@
 // Created by 娄宇庭 on 2018/12/20.
 //
 
-#ifndef DEMO_TEST5_H
-#define DEMO_TEST5_H
-
 #include <iostream>
 #include <string>
 
@@ -150,4 +147,3 @@ void StrVec::reallocate() {
 }
 
 
-#endif //DEMO_TEST5_H

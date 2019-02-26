@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "LibMat.h"
+#include "oo_virtual_LibMat.h"
 
 using namespace std;
 
