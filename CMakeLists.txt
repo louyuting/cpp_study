@@ -12,9 +12,6 @@ link_directories(/usr/local/lib /usr/lib/)
 
 
 
-
-
-
 # boost
 add_executable(demo src/main/study/boost/main.cpp)
 
@@ -23,12 +20,7 @@ add_executable(demo src/main/study/boost/main.cpp)
 add_executable(constructor_copy_test1 src/main/study/constructor/copy_constructor_test1.cpp)
 
 
-
-
-
 add_executable(effective_07 src/main/study/object_oriented/inheritance_test1.cpp)
-
-
 
 
 add_executable(study_array src/main/study/containers/array/test.cpp)
