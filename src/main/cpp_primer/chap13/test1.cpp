@@ -13,13 +13,14 @@ using namespace std;
 class Str {
 public:
     Str() = default;
-    Str(const int n, const string nam): num(n), name(nam){
+    Str(const int n, const string name): num(n), name(name){
         cout << "construct!" << endl;
     }
     // copy constructor
     Str(const Str& rhs) : num(rhs.num), name(rhs.name){
         cout << "copy construct!" << endl;
     }
+    // copy assignment
     Str&operator=(const Str& rhs){
         this->num = rhs.num;
         this->name = rhs.name;

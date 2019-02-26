@@ -74,9 +74,6 @@ QueryResult TextQuery::query(const string &sou) const {
 }
 
 
-
-
-
 ostream& print(ostream& os, const QueryResult& qr){
     os << qr.sought << " occurs " << qr.lines->size() <<
     " times" << endl;

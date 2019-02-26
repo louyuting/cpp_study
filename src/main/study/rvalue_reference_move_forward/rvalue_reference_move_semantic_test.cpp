@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <vector>
 
 using namespace std;
@@ -37,7 +38,7 @@ public:
     }
     // 拷贝构造函数
     MyString(const MyString& other){
-        std::cout<<"copy constructor"<<endl;
+        std::cout<<"copy constructor MyString"<<endl;
         MyString::C_C_Cnt ++;
         if (other.m_pData){
             this->m_nLen = other.m_nLen;
@@ -101,7 +102,7 @@ private:
     {
         if (this->m_pData != nullptr)
         {
-            delete[] this->m_pData;
+            delete this->m_pData;
             this->m_pData = nullptr;
         }
     }
@@ -118,12 +119,12 @@ size_t MyString::C_A_Cnt = 0;
 int main() {
     cout << "start" << endl;
     std::vector<MyString> vector1;
-    vector1.reserve(1000);
-    for(int i=0;i<1000;i++){
+    vector1.reserve(10);
+    for(int i=0;i<10;i++){
         //左值
         MyString tmp("work");
         //当将tmp传递给push_back函数的时候，会调用拷贝构造函数。
-        vector1.emplace_back(tmp);
+        vector1.push_back(tmp);
     }
     cout << "Constructor_Copy_Cnt = "       << MyString::C_C_Cnt << endl;
     cout << "Constructor_Assignment_Cnt = " << MyString::C_A_Cnt << endl;

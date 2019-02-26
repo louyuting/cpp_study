@@ -6,12 +6,25 @@ set(CMAKE_CXX_STANDARD 14)
 # boost
 set(BOOST_ROOT "/usr/local/include/boost")
 #添加头文件搜索路径
-include_directories(/usr/local/include)
+include_directories(/usr/local/include /usr/include/)
 #添加库文件搜索路径
-link_directories(/usr/local/lib)
+link_directories(/usr/local/lib /usr/lib/)
 
 
-add_executable(demo src/main/main.cpp)
+
+
+
+
+# boost
+add_executable(demo src/main/study/boost/main.cpp)
+
+
+# constructor
+add_executable(constructor_copy_test1 src/main/study/constructor/copy_constructor_test1.cpp)
+
+
+
+
 
 add_executable(effective_07 src/main/effective/num07/test.cpp)
 add_executable(effective_08 src/main/effective/num08/test.cpp)
