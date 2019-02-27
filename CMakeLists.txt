@@ -13,7 +13,7 @@ link_directories(/usr/local/lib /usr/lib/)
 
 
 # boost
-add_executable(demo src/main/study/boost/main.cpp)
+add_executable(boost_main src/main/study/boost/main.cpp)
 
 
 # constructor
@@ -34,7 +34,7 @@ add_executable(pass_paramter_test1 src/main/study/pass_paramter/pass_paramter_te
 
 
 # src/main/study/string
-add_executable(study_string_test1 src/main/study/string/string_test.cpp)
+add_executable(study_string_test1 src/main/study/string/string_test1.cpp)
 add_executable(study_stringstream_test1 src/main/study/string/stringstream_test.cpp)
 
 

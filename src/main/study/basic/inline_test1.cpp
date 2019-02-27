@@ -1,10 +1,6 @@
 //
 // Created by 娄宇庭 on 2018/12/19.
 //
-
-#ifndef DEMO_TEST3_H
-#define DEMO_TEST3_H
-
 #include <iostream>
 #include <string>
 
@@ -38,4 +34,3 @@ char Screen::get(Screen::pos r, Screen::pos c) const {
     pos row = r*width;
     return content[row+c]
 }
-#endif //DEMO_TEST3_H
