@@ -24,34 +24,33 @@ add_executable(copy_constructor_assignment_test1 src/main/study/constructor/copy
 add_executable(copy_constructor_member_init_order_test1 src/main/study/constructor/copy_constructor_member_init_order_test1.cpp)
 
 
+# containers
+add_executable(study_array_test1 src/main/study/containers/array/container_array_test1.cpp)
+add_executable(study_list_test1 src/main/study/containers/list/container_list_test1.cpp)
+add_executable(study_vector src/main/study/containers/vector/container_vector_test1.cpp)
 
 
-
-add_executable(effective_07 src/main/study/object_oriented/inheritance_test1.cpp)
-
-
-add_executable(study_array src/main/study/containers/array/test.cpp)
-add_executable(study_forward_list src/main/study/containers/forward_list/test.cpp)
-add_executable(study_list src/main/study/containers/list/inheritance_test1.cpp)
-add_executable(study_vector src/main/study/containers/vector/test.cpp)
+# object_oriended
+add_executable(object_oriended_inheritance_test1 src/main/study/object_oriented/inheritance_test1.cpp)
+add_executable(object_oriended_inheritance_test2 src/main/study/object_oriented/inheritance_test2.cpp)
+add_executable(object_oriended_friend_test1 src/main/study/object_oriented/oo_friend_test1.cpp)
+add_executable(object_oriended_virtual_test1 src/main/study/object_oriented/oo_virtual_LibMat.cpp)
 
 
 # pass_paramter
 add_executable(pass_paramter_test1 src/main/study/pass_paramter/pass_paramter_test1.cpp)
 
 
-# src/main/study/string
+# study_rvalue_ref_move_forward
+add_executable(study_rvalue_ref_move_forward_test1 src/main/study/rvalue_reference_move_forward/rvalue_reference_move_semantic_test.cpp)
+
+
+# string
 add_executable(study_string_test1 src/main/study/string/string_test1.cpp)
 add_executable(study_stringstream_test1 src/main/study/string/stringstream_test.cpp)
 
 
-
-
-add_executable(study_rvalue_ref_move_forward_test1 src/main/study/rvalue_reference_move_forward/rvalue_reference_move_semantic_test.cpp)
-
-
-
-
+# smart_ptr
 add_executable(study_ptr_auto src/main/study/smart_ptr/auto_ptr_test.cpp)
 add_executable(study_ptr_shared1 src/main/study/smart_ptr/shared_ptr1.cpp)
 add_executable(study_ptr_shared2 src/main/study/smart_ptr/shared_ptr2.cpp)
@@ -67,16 +66,5 @@ add_executable(study_multi_thread_test3_1 src/main/study/multi_thread/test3_1.cp
 add_executable(study_multi_thread_test3_2 src/main/study/multi_thread/test3_2.cpp)
 add_executable(study_multi_thread_test4_1 src/main/study/multi_thread/test4_1.cpp)
 
-
-add_executable(essential_chap3 src/main/study/template/template_stl_test1.cpp)
-add_executable(essential_chap4_member_initiallization_list_test src/main/study/constructor/member_initiallization_list_test.cpp)
-add_executable(essential_chap5_libmat src/main/study/object_oriented/oo_virtual_LibMat.cpp)
-add_executable(essential_chap6_01 src/main/study/template/template_test2.cpp)
-
-
-add_executable(cpp_primer_chap12_test1 src/main/study/smart_ptr/shared_ptr_test3.cpp)
-add_executable(cpp_primer_chap12_test3 src/main/study/smart_ptr/shared_ptr_test4.cpp)
-add_executable(cpp_primer_chap13_test1 src/main/study/constructor/copy_constructor_assignment_test1.cpp)
-add_executable(cpp_primer_chap15_test1 src/main/study/object_oriented/inheritance_test2.cpp)
 
 
