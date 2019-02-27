@@ -1,3 +1,0 @@
-/Users/ytlou/Desktop/cpp/cpp_study/src/main/study/boost/CMakeFiles/rebuild_cache.dir
-/Users/ytlou/Desktop/cpp/cpp_study/src/main/study/boost/CMakeFiles/edit_cache.dir
-/Users/ytlou/Desktop/cpp/cpp_study/src/main/study/boost/CMakeFiles/boost_main.dir

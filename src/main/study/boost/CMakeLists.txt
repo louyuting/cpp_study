@@ -14,5 +14,5 @@ aux_source_directory(. DIR_SRCS)
 #add_executable(boost_main main.cpp function.cpp)
 
 
-add_executable(boost_main ${DIR_SRCS})
+# add_executable(boost_main ${DIR_SRCS})
 

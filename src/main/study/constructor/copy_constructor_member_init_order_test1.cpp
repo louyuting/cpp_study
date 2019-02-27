@@ -12,12 +12,12 @@
 using namespace std;
 
 class BaseTest1{
+private:
+    int a;
 public:
     BaseTest1();
     BaseTest1(const BaseTest1& t1);
     BaseTest1& operator=(const BaseTest1& t1);
-private:
-    int a;
 };
 
 BaseTest1::BaseTest1()
@@ -26,10 +26,9 @@ BaseTest1::BaseTest1()
     this->a = 0;
 }
 
-BaseTest1::BaseTest1(const BaseTest1 &t1)
+BaseTest1::BaseTest1(const BaseTest1& t1):a(t1.a)
 {
     cout << "BaseTest1 Copy Constructor" << endl;
-    this->a = t1.a;
 }
 
 BaseTest1& BaseTest1::operator=(const BaseTest1 &t1)
@@ -41,16 +40,17 @@ BaseTest1& BaseTest1::operator=(const BaseTest1 &t1)
 
 class BaseTest2
 {
+private:
+    int a;
 public:
     BaseTest2()
     {
         cout << "BaseTest2 Constructor" << endl;
         this->a = 0;
     }
-    BaseTest2(const BaseTest2& t)
+    BaseTest2(const BaseTest2& t):a(t.a)
     {
         cout << "BaseTest2 Copy Constructor" << endl;
-        this->a = t.a;
     }
     BaseTest2& operator=(const BaseTest2& t)
     {
@@ -58,35 +58,24 @@ public:
         this->a = t.a;
         return *this;
     }
-private:
-    int a;
 };
 
 
 class Test{
+public:
+    BaseTest2 test2;
+    BaseTest1 test1;
 public:
     Test(BaseTest1& t1, BaseTest2& t2):test1(t1),test2(t2) {
         cout << "constructor Test(BaseTest1& t1, BaseTest2& t2)" << endl;
     }
 
     // copy constructor
-    Test(Test& t){
+    Test(const Test& t):test1(t.test1), test2(t.test2){
         cout << "copy constructor Test!" <<endl;
-        this->test1 = t.test1;
-        this->test2 = t.test2;
     }
-public:
-    BaseTest2 test2;
-    BaseTest1 test1;
-};
 
-Test getReturn()
-{
-    BaseTest1 test1;
-    BaseTest2 test2;
-    Test test(test1, test2);
-    return test;
-}
+};
 
 
 void test_const_lvalue(const Test& test) {
@@ -96,15 +85,12 @@ void test_const_lvalue(const Test& test) {
 
 int main(int argc, char* args[])
 {
+    cout << "==member init order============" << endl;
     BaseTest1 test1;
     BaseTest2 test2;
     Test test(test1, test2);
 
-
-//    Test t = getReturn();
-
     cout << "=============test_const_lvalue function============" << endl;
-    //
     test_const_lvalue(test);
     Test& test_ref = test;
     // 左值

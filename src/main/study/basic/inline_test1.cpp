@@ -11,9 +11,9 @@ public:
     typedef string::size_type pos;
     Screen() = default;
     Screen(pos ht, pos wd, char c) : height(ht), width(wd), content(string(ht*wd, c)){}
-    // 隐式内联
+    // 隐式内联：在类里定义的成员函数默认会被认为是内联函数
     char get() const { return content[cur];}
-    // 显示内联
+    // 显示指定内联声明
     inline char get(pos ht, pos wd) const ;
     // 能在定义里面设置内联
     Screen& move(pos r, pos c);

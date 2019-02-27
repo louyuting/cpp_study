@@ -11,7 +11,10 @@ using namespace std;
 
 class Str {
 public:
-    Str():name(string()), num(0) {  }
+    int num;
+    string name;
+public:
+    Str():name(string("")), num(0) {  }
     Str(const int n, const string name): num(n), name(name)
     {
         cout << "construct!" << endl;
@@ -32,9 +35,7 @@ public:
     int get_num() const { return this->num;}
     string get_name() const { return this->name;}
 
-public:
-    int num;
-    string name;
+
 };
 
 int main(){
@@ -70,10 +71,11 @@ int main(){
 
     cout << "Step4 copy assignment" << endl;
     /**
-     * assignment
+     * constructor
      */
     Str s4 = Str(4, "4");
     Str s5 = Str(5, "5");
+    // assignment
     s5 = s4;
     s4.num = 44;
     s4.name = "44";
