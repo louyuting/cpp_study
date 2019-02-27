@@ -11,6 +11,9 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(src/main/study/common/)
 
 
+add_executable(test src/main/study/test.cpp)
+
+
 # basic
 add_executable(basic_test1 src/main/study/basic/inline_test1.cpp)
 
@@ -65,6 +68,4 @@ add_executable(study_multi_thread_test2_1 src/main/study/multi_thread/test2_1.cp
 add_executable(study_multi_thread_test3_1 src/main/study/multi_thread/test3_1.cpp)
 add_executable(study_multi_thread_test3_2 src/main/study/multi_thread/test3_2.cpp)
 add_executable(study_multi_thread_test4_1 src/main/study/multi_thread/test4_1.cpp)
-
-
 
