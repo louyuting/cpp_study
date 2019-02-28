@@ -63,7 +63,7 @@ public:
     }
 
     // 移动构造函数
-    MyString(MyString&& other): m_pData(other.m_pData), m_nLen(other.m_nLen){
+    MyString(MyString&& other): m_pData(other.m_pData), m_nLen(other.m_nLen) noexcept {
         std::cout<<"move constructor "<<endl;
         MyString::M_C_Cnt++;
         //释放原有的资源
