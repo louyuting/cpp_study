@@ -3,13 +3,23 @@ project(cpp_study)
 
 set(CMAKE_CXX_STANDARD 14)
 
+find_package(BOOST REQUIRED)
+if (Boost_FOUND)
+    message("Found Boost")
+endif ()
+if(NOT Boost_FOUND)
+    message("Not found Boost")
+endif()
+message("Boost_INCLUDE_DIRS-> ${Boost_INCLUDE_DIRS}")
+message("Boost_LIBRARIES-> ${Boost_LIBRARIES}")
+include_directories(${Boost_INCLUDE_DIRS})
+link_libraries(${Boost_LIBRARIES})
 #添加头文件搜索路径
 #include_directories(/usr/local/include/)
 #添加库文件搜索路径
 #link_directories(/usr/local/lib/ /usr/lib/)
 
 include_directories(src/main/study/common/)
-
 
 add_executable(test src/main/study/test.cpp)
 
