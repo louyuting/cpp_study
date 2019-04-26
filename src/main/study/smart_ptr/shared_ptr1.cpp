@@ -7,10 +7,12 @@
 
 using namespace std;
 
-class Test{
+struct Test{
 public:
     int m_a;
-    Test(int a=0) : m_a(a){}
+    Test(int a=0) : m_a(a){
+        cout << "constructor of Test" << endl;
+    }
 
     ~Test(){
         cout << "Calling destructor" << endl;
@@ -26,9 +28,15 @@ int main(){
     // 验证共享资源的shared_ptr智能指针；
     // 当作为参数传递进函数的时候，函数内部引用次数会自增并在函数结束之后自减。
     shared_ptr<int> sptr1 = make_shared<int>(100);
+    cout << "aptr1里面的值: " << *sptr1 << endl;
     cout << "fun before引用次数是：" <<  sptr1.use_count() << endl;
     fun(sptr1);
     cout << "fun after引用次数是：" <<  sptr1.use_count() << endl;
+
+    cout << "=============================================="<< endl;
+    shared_ptr<Test> s_ptr_Test = make_shared<Test>(0);
+    s_ptr_Test->m_a = 8888;
+    cout << "print s_ptr_Test->m_a=[" << s_ptr_Test->m_a << "]" << endl;
 }
 
 

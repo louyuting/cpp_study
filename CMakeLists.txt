@@ -3,17 +3,17 @@ project(cpp_study)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package(BOOST REQUIRED)
-if (Boost_FOUND)
-    message("Found Boost")
-endif ()
-if(NOT Boost_FOUND)
-    message("Not found Boost")
-endif()
-message("Boost_INCLUDE_DIRS-> ${Boost_INCLUDE_DIRS}")
-message("Boost_LIBRARIES-> ${Boost_LIBRARIES}")
-include_directories(${Boost_INCLUDE_DIRS})
-link_libraries(${Boost_LIBRARIES})
+#find_package(BOOST REQUIRED)
+#if (Boost_FOUND)
+#    message("Found Boost")
+#endif ()
+#if(NOT Boost_FOUND)
+#    message("Not found Boost")
+#endif()
+#message("Boost_INCLUDE_DIRS-> ${Boost_INCLUDE_DIRS}")
+#message("Boost_LIBRARIES-> ${Boost_LIBRARIES}")
+#include_directories(${Boost_INCLUDE_DIRS})
+#link_libraries(${Boost_LIBRARIES})
 #添加头文件搜索路径
 #include_directories(/usr/local/include/)
 #添加库文件搜索路径
@@ -40,12 +40,13 @@ add_executable(copy_constructor_member_init_order_test1 src/main/study/construct
 # containers
 add_executable(study_array_test1 src/main/study/containers/array/container_array_test1.cpp)
 add_executable(study_list_test1 src/main/study/containers/list/container_list_test1.cpp)
-add_executable(study_vector src/main/study/containers/vector/container_vector_test1.cpp)
+add_executable(study_vector src/main/study/containers/vector/vector_test1.cpp)
 
 
 # object_oriended
 add_executable(object_oriended_inheritance_test1 src/main/study/object_oriented/inheritance_test1.cpp)
 add_executable(object_oriended_inheritance_test2 src/main/study/object_oriented/inheritance_test2.cpp)
+add_executable(object_oriended_inheritance_test3 src/main/study/object_oriented/inheritance_test3.cpp)
 add_executable(object_oriended_friend_test1 src/main/study/object_oriented/oo_friend_test1.cpp)
 add_executable(object_oriended_virtual_test1 src/main/study/object_oriented/oo_virtual_LibMat.cpp)
 
