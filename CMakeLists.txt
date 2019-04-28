@@ -21,12 +21,11 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(src/main/study/common/)
 
-add_executable(test src/main/study/test.cpp)
 
+add_executable(test src/main/study/test.cpp)
 
 # basic
 add_executable(basic_test1 src/main/study/basic/inline_test1.cpp)
-
 
 # boost
 add_executable(boost_demo src/main/study/boost/main.cpp)
@@ -40,7 +39,7 @@ add_executable(copy_constructor_member_init_order_test1 src/main/study/construct
 # containers
 add_executable(study_array_test1 src/main/study/containers/array/container_array_test1.cpp)
 add_executable(study_list_test1 src/main/study/containers/list/container_list_test1.cpp)
-add_executable(study_vector src/main/study/containers/vector/vector_test1.cpp)
+add_executable(study_vector_test1 src/main/study/containers/vector/vector_test1.cpp src/main/study/containers/common.h)
 
 
 # object_oriended
@@ -65,10 +64,12 @@ add_executable(study_stringstream_test1 src/main/study/string/stringstream_test.
 
 
 # smart_ptr
-add_executable(study_ptr_auto src/main/study/smart_ptr/auto_ptr_test.cpp)
-add_executable(study_ptr_shared1 src/main/study/smart_ptr/shared_ptr1.cpp)
-add_executable(study_ptr_shared2 src/main/study/smart_ptr/shared_ptr2.cpp)
-add_executable(study_ptr_unique_ptr_test  src/main/study/smart_ptr/unique_ptr_test.cpp)
+add_executable(study_ptr_auto_test1 src/main/study/smart_ptr/auto_ptr_test1.cpp)
+
+add_executable(study_ptr_shared_test1 src/main/study/smart_ptr/shared_ptr_test1.cpp)
+add_executable(study_ptr_shared_test2 src/main/study/smart_ptr/shared_ptr_test2.cpp src/main/study/smart_ptr/shared_ptr_test2.h)
+add_executable(study_ptr_shared_test3 src/main/study/smart_ptr/shared_ptr_test1.cpp src/main/study/smart_ptr/shared_ptr_test3.h)
+add_executable(study_ptr_unique_ptr_test1 src/main/study/smart_ptr/unique_ptr_test1.cpp)
 add_executable(study_ptr_unique_ptr_test2 src/main/study/smart_ptr/unique_ptr_test2.cpp)
 
 
@@ -79,4 +80,9 @@ add_executable(study_multi_thread_test2_1 src/main/study/multi_thread/test2_1.cp
 add_executable(study_multi_thread_test3_1 src/main/study/multi_thread/test3_1.cpp)
 add_executable(study_multi_thread_test3_2 src/main/study/multi_thread/test3_2.cpp)
 add_executable(study_multi_thread_test4_1 src/main/study/multi_thread/test4_1.cpp)
+
+
+add_executable(study_time_test1 src/main/study/time/chrono_get_timestamp_test1.cpp)
+add_executable(study_time_test2 src/main/study/time/chrono_test2.cpp)
+
 

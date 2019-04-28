@@ -4,10 +4,12 @@
 #include <chrono>
 #include <time.h>
 
+#include "../common.h"
+
 using namespace std;
 using namespace chrono;
 
-void normal_test(){
+void normal_test1(){
     vector<string> vector1;
 
     vector1.emplace_back("test1");
@@ -61,7 +63,7 @@ long long get_timestamp_micros() {
 }
 
 /**
- * 测试
+ * 测试swap函数的性能
  */
 void vector_swap_performance_and_clear_func_test1(){
     vector<long> vec1;
@@ -118,6 +120,10 @@ void vector_swap_performance_and_clear_func_test1(){
 }
 
 
+/**
+ * 测试swap函数来实现清空vector的case
+ * 测试assign函数实现赋值
+ */
 void vector_clear_assign_test()
 {
     vector<long> vec1;
@@ -143,15 +149,6 @@ void vector_clear_assign_test()
     cout << "================================================================" << endl;
 }
 
-
-class Test {
-public:
-    Test()
-    {
-        cout<< "default constructor of Test" << endl;
-    }
-
-};
 
 void vector_ptr_test1(){
     // 初始了100个元素，值为默认值，如果是对象就会调用默认构造函数

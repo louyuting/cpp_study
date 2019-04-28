@@ -30,7 +30,3 @@ Screen& Screen::move(Screen::pos r, Screen::pos c) {
     return *this;
 }
 
-char Screen::get(Screen::pos r, Screen::pos c) const {
-    pos row = r*width;
-    return content[row+c]
-}
