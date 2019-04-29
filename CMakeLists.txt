@@ -3,21 +3,21 @@ project(cpp_study)
 
 set(CMAKE_CXX_STANDARD 14)
 
-#find_package(BOOST REQUIRED)
-#if (Boost_FOUND)
-#    message("Found Boost")
-#endif ()
-#if(NOT Boost_FOUND)
-#    message("Not found Boost")
-#endif()
-#message("Boost_INCLUDE_DIRS-> ${Boost_INCLUDE_DIRS}")
-#message("Boost_LIBRARIES-> ${Boost_LIBRARIES}")
-#include_directories(${Boost_INCLUDE_DIRS})
-#link_libraries(${Boost_LIBRARIES})
+find_package(BOOST REQUIRED)
+if (Boost_FOUND)
+    message("Found Boost")
+endif ()
+if(NOT Boost_FOUND)
+    message("Not found Boost")
+endif()
+message("Boost_INCLUDE_DIRS-> ${Boost_INCLUDE_DIRS}")
+message("Boost_LIBRARIES-> ${Boost_LIBRARIES}")
+include_directories(${Boost_INCLUDE_DIRS})
+link_libraries(${Boost_LIBRARIES})
 #添加头文件搜索路径
-#include_directories(/usr/local/include/)
+include_directories(/usr/local/include/)
 #添加库文件搜索路径
-#link_directories(/usr/local/lib/ /usr/lib/)
+link_directories(/usr/local/lib/ /usr/lib/)
 
 include_directories(src/main/study/common/)
 
@@ -40,6 +40,9 @@ add_executable(copy_constructor_member_init_order_test1 src/main/study/construct
 add_executable(study_array_test1 src/main/study/containers/array/container_array_test1.cpp)
 add_executable(study_list_test1 src/main/study/containers/list/container_list_test1.cpp)
 add_executable(study_vector_test1 src/main/study/containers/vector/vector_test1.cpp src/main/study/containers/common.h)
+add_executable(study_map_test1 src/main/study/containers/map/map_test1.cpp src/main/study/containers/map/map_test1.h)
+
+
 
 
 # object_oriended
@@ -61,19 +64,19 @@ add_executable(study_rvalue_ref_move_forward_test1 src/main/study/rvalue_referen
 # string
 add_executable(study_string_test1 src/main/study/string/string_test1.cpp)
 add_executable(study_stringstream_test1 src/main/study/string/stringstream_test.cpp)
-
+add_executable(study_string_int_test1 src/main/study/string/string_int_test1.cpp)
 
 # smart_ptr
 add_executable(study_ptr_auto_test1 src/main/study/smart_ptr/auto_ptr_test1.cpp)
 
-add_executable(study_ptr_shared_test1 src/main/study/smart_ptr/shared_ptr_test1.cpp)
-add_executable(study_ptr_shared_test2 src/main/study/smart_ptr/shared_ptr_test2.cpp src/main/study/smart_ptr/shared_ptr_test2.h)
-add_executable(study_ptr_shared_test3 src/main/study/smart_ptr/shared_ptr_test1.cpp src/main/study/smart_ptr/shared_ptr_test3.h)
-add_executable(study_ptr_unique_ptr_test1 src/main/study/smart_ptr/unique_ptr_test1.cpp)
-add_executable(study_ptr_unique_ptr_test2 src/main/study/smart_ptr/unique_ptr_test2.cpp)
+add_executable(study_ptr_shared_test1 src/main/study/smart_ptr/shared_ptr/shared_ptr_test1.cpp)
+add_executable(study_ptr_shared_test2 src/main/study/smart_ptr/shared_ptr/shared_ptr_test2.cpp src/main/study/smart_ptr/shared_ptr/shared_ptr_test2.h)
+add_executable(study_ptr_shared_test3 src/main/study/smart_ptr/shared_ptr/shared_ptr_test1.cpp src/main/study/smart_ptr/shared_ptr/shared_ptr_test3.h)
+add_executable(study_ptr_unique_ptr_test1 src/main/study/smart_ptr/unique_ptr/unique_ptr_test1.cpp)
+add_executable(study_ptr_unique_ptr_test2 src/main/study/smart_ptr/unique_ptr/unique_ptr_test2.cpp)
 
 
-add_executable(study_multi_thread_test1_1 src/main/study/multi_thread/test1_1.cpp)
+add_executable(study_multi_thread_test1_1 src/main/study/multi_thread/thread_normal_test1.cpp)
 add_executable(study_multi_thread_test1_2 src/main/study/multi_thread/test1_2.cpp)
 add_executable(study_multi_thread_test1_3 src/main/study/multi_thread/test1_3.cpp)
 add_executable(study_multi_thread_test2_1 src/main/study/multi_thread/test2_1.cpp)

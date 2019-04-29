@@ -56,9 +56,11 @@ public:
         }
         return *this;
     }
+
     // 移动构造函数
-    HasStr(HasStr&& rvalue):p_str(rvalue.p_str), str_name(rvalue.str_name) noexcept
+    HasStr(HasStr&& rvalue):p_str(rvalue.p_str), str_name(rvalue.str_name)
     {
+
         cout << "move constructor" << endl;
         //将右值的指针置为 nullptr，可以安全执行析构。
         rvalue.p_str = nullptr;

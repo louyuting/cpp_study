@@ -14,11 +14,24 @@ class Test
 public:
     explicit Test(int num):_num(num)
     {
-        cout << "constructor Test" << endl;
+        cout << "default constructor Test, this->num="<< this->_num<< endl;
     }
+
+    Test(const Test& test): _num(test._num)
+    {
+        cout << "copy constructor Test, this->num="<< this->_num<< endl;
+    }
+
+    Test(Test&& r_test) noexcept
+    {
+        this->_num = r_test._num;
+        cout << "move constructor Test, this->num="<< this->_num<< endl;
+    }
+
     ~Test()
     {
-        cout << "destructor Test" << endl;
+
+        cout << "destructor  Test, this->num="<< this->_num << endl;
     }
 public:
     int _num;
@@ -125,6 +138,28 @@ void unique_ptr_normal_test3()
     }
 }
 
+
+
+void unique_ptr_normal_test4(){
+    cout<< "step 1" << endl;
+    unique_ptr<Test> p1 = make_unique<Test>(move(Test(0)));
+    cout<< "p1->num"<< p1->_num << endl;
+    cout<< "step 2" << endl;
+    Test* tmp = new Test(88);
+    cout<< "step 3" << endl;
+    p1.reset(tmp);
+    cout<< "step 4" << endl;
+    cout<< p1->_num << endl;
+}
+
+
+void unique_ptr_normal_test5(){
+    unique_ptr<Test> p2(new Test(2));
+    cout<< "p2->num="<< p2->_num << endl;
+}
+
+
+
 int main(){
     cout<< "/************unique_ptr_normal_test1()********************/" << endl;
     unique_ptr_normal_test1();
@@ -132,5 +167,8 @@ int main(){
     unique_ptr_normal_test2();
     cout<< "/************unique_ptr_normal_test3()********************/" << endl;
     unique_ptr_normal_test3();
-    cout<< "ending" <<endl;
+    cout<< "/************unique_ptr_normal_test4()********************/" << endl;
+    unique_ptr_normal_test4();
+    cout<< "/************unique_ptr_normal_test5()********************/" << endl;
+    unique_ptr_normal_test5();
 }

@@ -92,7 +92,7 @@ void vector_swap_performance_and_clear_func_test1(){
     cout << "t1="<<t1<<"; t2="<<t2<<"; diff=" << t2-t1 << "us" << endl;
     cout << "vec1.size:" << vec1.size() << "| vec1.capacity:"<< vec1.capacity() << endl;
     cout << "vec2.size:" << vec2.size() << "| vec2.capacity:"<< vec2.capacity() << endl;
-    cout << "============================================================" << endl;
+    cout << "---------" << endl;
 
 
     vector<long> vec3;
@@ -124,7 +124,7 @@ void vector_swap_performance_and_clear_func_test1(){
  * 测试swap函数来实现清空vector的case
  * 测试assign函数实现赋值
  */
-void vector_clear_assign_test()
+void vector_clear_assign_test1()
 {
     vector<long> vec1;
     cout << "empty vector vec1.size = " << vec1.size() << endl;
@@ -133,11 +133,11 @@ void vector_clear_assign_test()
     }
     cout << "vec1.size = " << vec1.size() << "; vec1.cap="<< vec1.capacity() << endl;
 
-    cout << "================================================================" << endl;
+    cout << "---------" << endl;
     vector<long>().swap(vec1);
     cout << "vec1.size = " << vec1.size() << "; vec1.cap="<< vec1.capacity() << endl;
 
-    cout << "================================================================" << endl;
+    cout << "---------" << endl;
     vector<long> vec2;
     cout << "empty vector vec2.size = " << vec2.size() << endl;
     for (long i = 0; i < 1000; ++i) {
@@ -146,7 +146,7 @@ void vector_clear_assign_test()
     cout << "vec2.size = " << vec2.size() << "; vec2.cap="<< vec2.capacity() << endl;
     vec2.assign(1, 0);
     cout << "vec2.size = " << vec2.size() << "; vec2.cap="<< vec2.capacity() << endl;
-    cout << "================================================================" << endl;
+    cout << "---------" << endl;
 }
 
 
@@ -168,11 +168,35 @@ void vector_ptr_test1(){
     }
 }
 
-
+void vector_reserve_test1(){
+    cout << "----step1----"<< endl;
+    vector<int> vec1;
+    cout << "vec1.size = " << vec1.size() << "; vec1.cap="<< vec1.capacity() << endl;
+    cout << "----step2----"<< endl;
+    vec1.reserve(1010000);
+    cout << "vec1.size = " << vec1.size() << "; vec1.cap="<< vec1.capacity() << endl;
+    vec1.shrink_to_fit();
+    cout << "vec1.size = " << vec1.size() << "; vec1.cap="<< vec1.capacity() << endl;
+    cout << "----step3----"<< endl;
+    for (int i = 0; i < 1000; ++i) {
+        vec1.emplace_back(i);
+    }
+    cout << "vec1.size = " << vec1.size() << "; vec1.cap="<< vec1.capacity() << endl;
+    for (int j = 0; j < 1000; ++j) {
+        cout << vec1.at(j)<< endl;
+    }
+    cout << "----step4----"<< endl;
+    vector<int>().swap(vec1);
+    cout << "vec1.size = " << vec1.size() << "; vec1.cap="<< vec1.capacity() << endl;
+}
 
 int main()
 {
-    //vector_swap_performance_and_clear_func_test1()
-    vector_clear_assign_test();
+    cout<< "/************vector_swap_performance_and_clear_func_test1()********************/" << endl;
+    vector_swap_performance_and_clear_func_test1();
+    cout<< "/************vector_clear_assign_test()********************/" << endl;
+    vector_clear_assign_test1();
+    cout<< "/************vector_reserve_test1()********************/" << endl;
+    vector_reserve_test1();
     return 0;
 }
