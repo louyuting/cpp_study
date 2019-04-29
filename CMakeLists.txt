@@ -76,13 +76,11 @@ add_executable(study_ptr_unique_ptr_test1 src/main/study/smart_ptr/unique_ptr/un
 add_executable(study_ptr_unique_ptr_test2 src/main/study/smart_ptr/unique_ptr/unique_ptr_test2.cpp)
 
 
-add_executable(study_multi_thread_test1_1 src/main/study/multi_thread/thread_normal_test1.cpp)
-add_executable(study_multi_thread_test1_2 src/main/study/multi_thread/test1_2.cpp)
-add_executable(study_multi_thread_test1_3 src/main/study/multi_thread/test1_3.cpp)
-add_executable(study_multi_thread_test2_1 src/main/study/multi_thread/test2_1.cpp)
-add_executable(study_multi_thread_test3_1 src/main/study/multi_thread/test3_1.cpp)
-add_executable(study_multi_thread_test3_2 src/main/study/multi_thread/test3_2.cpp)
-add_executable(study_multi_thread_test4_1 src/main/study/multi_thread/test4_1.cpp)
+add_executable(atomic_normal_test1 src/main/study/multi_thread/atomic_normal_test1.cpp)
+add_executable(thread_created_by_func_ptr_test1 src/main/study/multi_thread/thread_created_by_func_ptr_test.cpp)
+add_executable(thread_created_by_function_object_test src/main/study/multi_thread/thread_created_by_function_object_test.cpp)
+add_executable(thread_created_by_lambda_test1  src/main/study/multi_thread/thread_created_by_lambda_test.cpp)
+add_executable(thread_normal_test1 src/main/study/multi_thread/thread_normal_test1.cpp)
 
 
 add_executable(study_time_test1 src/main/study/time/chrono_get_timestamp_test1.cpp)
