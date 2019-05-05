@@ -46,6 +46,10 @@ unique_ptr<int> _get_unique_ptr()
 void _handler_unique_ptr(unique_ptr<int>&& ptr)
 {
     *ptr = 20;
+}
+void _handler_unique_ptr_2(unique_ptr<int>&& ptr)
+{
+    *ptr = 20;
     unique_ptr<int> tmp = std::move(ptr);
 }
 
@@ -105,7 +109,6 @@ void unique_ptr_normal_test2()
     //所以在调用handler_unique_ptr函数移动走p_int9之后，p_int9会变成null
     unique_ptr<int> p_int9 = make_unique<int>(9);
     _handler_unique_ptr(std::move(p_int9));
-    //_handler_unique_ptr(std::move(p_int9));
     if (p_int9)
     {
         cout << "p_int9 is not nullptr:" << (!p_int9) << endl;
@@ -114,30 +117,40 @@ void unique_ptr_normal_test2()
     {
         cout << "p_int9 is nullptr:"<< (!p_int9) << endl;
     }
+    //
+    unique_ptr<int> p_int10 = make_unique<int>(10);
+    _handler_unique_ptr_2(std::move(p_int10));
+    if (p_int10)
+    {
+        cout << "p_int10 is not nullptr:" << (!p_int10) << endl;
+    }
+    else
+    {
+        cout << "p_int10 is nullptr:"<< (!p_int10) << endl;
+    }
 }
 
 void unique_ptr_normal_test3()
 {
     // 容器里面保存指针, 可以取出
     vector<unique_ptr<Test>> vector1;
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 5; ++i) {
         unique_ptr<Test> bak = std::make_unique<Test>(Test(i));
         vector1.push_back(std::move(bak));
     }
     // vector里面保存的是unique_ptr指针，当我们通过move移动指令取出来之后，
     // 那么vector里面对应的数据就已经为null了.
-    unique_ptr<Test> first   = std::move(vector1[99]);
+    unique_ptr<Test> first   = std::move(vector1[4]);
     cout<< first->_num <<endl;
     first->_num = 9999;
     cout<< first->_num <<endl;
-    unique_ptr<Test> first_2 = std::move(vector1[99]);
+    unique_ptr<Test> first_2 = std::move(vector1[4]);
     assert(first_2== nullptr);
     if (!first_2)
     {
         cout<< "pointer has been used!"<<endl;
     }
 }
-
 
 
 void unique_ptr_normal_test4(){

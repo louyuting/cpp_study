@@ -22,6 +22,12 @@ link_directories(/usr/local/lib/ /usr/lib/)
 include_directories(src/main/study/common/)
 
 
+
+add_executable(performance_test1 src/main/performance_test/load_test.cpp)
+
+
+
+
 add_executable(test src/main/study/test.cpp)
 
 # basic
@@ -41,8 +47,6 @@ add_executable(study_array_test1 src/main/study/containers/array/container_array
 add_executable(study_list_test1 src/main/study/containers/list/container_list_test1.cpp)
 add_executable(study_vector_test1 src/main/study/containers/vector/vector_test1.cpp src/main/study/containers/common.h)
 add_executable(study_map_test1 src/main/study/containers/map/map_test1.cpp src/main/study/containers/map/map_test1.h)
-
-
 
 
 # object_oriended
@@ -76,11 +80,13 @@ add_executable(study_ptr_unique_ptr_test1 src/main/study/smart_ptr/unique_ptr/un
 add_executable(study_ptr_unique_ptr_test2 src/main/study/smart_ptr/unique_ptr/unique_ptr_test2.cpp)
 
 
-add_executable(atomic_normal_test1 src/main/study/multi_thread/atomic_normal_test1.cpp)
-add_executable(thread_created_by_func_ptr_test1 src/main/study/multi_thread/thread_created_by_func_ptr_test.cpp)
-add_executable(thread_created_by_function_object_test src/main/study/multi_thread/thread_created_by_function_object_test.cpp)
-add_executable(thread_created_by_lambda_test1  src/main/study/multi_thread/thread_created_by_lambda_test.cpp)
-add_executable(thread_normal_test1 src/main/study/multi_thread/thread_normal_test1.cpp)
+add_executable(atomic_normal_test1 src/main/study/multi_thread/atomic/atomic_normal_test1.cpp)
+add_executable(thread_created_by_func_ptr_test1 src/main/study/multi_thread/thread_management/thread_created_by_func_ptr_test.cpp)
+add_executable(thread_created_by_function_object_test src/main/study/multi_thread/thread_management/thread_created_by_function_object_test.cpp)
+add_executable(thread_created_by_lambda_test1 src/main/study/multi_thread/thread_management/thread_created_by_lambda_test.cpp)
+add_executable(thread_normal_test1 src/main/study/multi_thread/thread_management/thread_normal_test1.cpp)
+add_executable(thread_move_ownship_test1 src/main/study/multi_thread/thread_management/thread_move_ownship_test1.cpp)
+add_executable(mutex_protect_shared_data_test1 src/main/study/multi_thread/mutex_data_share/mutex_protect_shared_data_test1.cpp)
 
 
 add_executable(study_time_test1 src/main/study/time/chrono_get_timestamp_test1.cpp)
