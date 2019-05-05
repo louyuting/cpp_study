@@ -98,6 +98,7 @@ add_executable(study_time_test2 src/main/study/time/chrono_test2.cpp)
 add_executable(study_memory_model_atomic_test1 src/main/study/memory_model/atomic_test1.cpp)
 add_executable(study_memory_model_atomic_spinlock_mutex src/main/study/memory_model/atomic_flag_impl_spinlock_mutex.cpp)
 add_executable(study_memory_model_base_lock_concurrent_data_structure_test1 src/main/study/memory_model/base_lock_concurrent_data_structure_test1.cpp)
+add_executable(study_memory_model_lock_free_stack_test1 src/main/study/memory_model/lockfree_stack_test1.cpp)
 
 
 

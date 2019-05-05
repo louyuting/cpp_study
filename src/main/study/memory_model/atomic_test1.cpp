@@ -57,6 +57,17 @@ void atomic_ptr_normal_test1()
     assert(p.load()==&some_array[1]);
 }
 
+void atomic_int_normal_test1()
+{
+    for (int i = 0; i <10000 ; ++i) {
+        atomic<long> a;
+        a.store(0);
+        long tmp = a.load();
+        cout << tmp << endl;
+        assert(tmp == 0);
+    }
+}
+
 
 int main()
 {
@@ -66,4 +77,6 @@ int main()
     atomic_bool_normal_test1();
     cout << "/***********************atomic_ptr_normal_test1()*****************************/" << endl;
     atomic_ptr_normal_test1();
+    cout << "/***********************atomic_int_normal_test1()*****************************/" << endl;
+    atomic_int_normal_test1();
 }
